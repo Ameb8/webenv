@@ -174,12 +174,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',  # Use MySQL
-        'NAME': config('DB_NAME'),  # Name of your MySQL database
-        'USER': config('DB_USER'),  # MySQL username
-        'PASSWORD': config('DB_PASSWORD'),  # MySQL password
-        'HOST': config('DB_HOST'),  # Use 'localhost' for local development
-        'PORT': config('DB_PORT'),  # Default MySQL port
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': config('DB_NAME'),
+        'USER': config('DB_USER'),
+        'PASSWORD': config('DB_PASSWORD'),
+        'HOST': config('DB_HOST'),
+        'PORT': config('DB_PORT'),
     }
 }
 
