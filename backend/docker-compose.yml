@@ -10,13 +10,18 @@ services:
       - "8080:8080"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - ./traefik.yml:/traefik.yml
+      - ./api-gateway/traefik.yml:/traefik.yml
 
   auth-service:
     build:
-      context: ./auth 
+      context: ./auth-service
     environment:
       - JWT_SECRET=${JWT_SECRET}
       - PORT=8000
     ports:
       - "8000:8000"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.auth-service.rule=PathPrefix(`/validate`)"
+      - "traefik.http.services.auth-service.loadbalancer.server.port=8000"
+

@@ -1,0 +1,4 @@
+- name: valid_jwt
+  setup: get_valid_jwt
+  expected_status: 200
+  expected_body_contains: "success"
