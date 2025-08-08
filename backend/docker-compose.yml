@@ -1,5 +1,3 @@
-version: "3"
-
 services:
   traefik:
     image: traefik:v2.10
@@ -25,3 +23,14 @@ services:
       - "traefik.http.routers.auth-service.rule=PathPrefix(`/validate`)"
       - "traefik.http.services.auth-service.loadbalancer.server.port=8000"
 
+  core-service:
+    build:
+      context: ./core-service/cflow_backend
+    env_file:
+      - ./core-service/cflow_backend/.env
+    expose:
+      - "9000"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.my-service.rule=PathPrefix(`/my-service`)"
+      - "traefik.http.services.my-service.loadbalancer.server.port=9000"
