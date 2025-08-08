@@ -19,13 +19,13 @@ from django.urls import path, include
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('api/', include('core.urls')),
-    path('file-sys/', include('file_sys_app.urls')),
-    path('project/', include('project_app.urls')),
-    path('git/', include('git_app.urls')),
-    path('accounts/', include('auth_app.urls')),
-    path('api/auth/', include('dj_rest_auth.urls')),
-    path('api/auth/registration/', include('dj_rest_auth.registration.urls')),
+    path('core/admin/', admin.site.urls),
+    path('core/api/', include('core.urls')),
+    path('core/file-sys/', include('file_sys_app.urls')),
+    path('core/project/', include('project_app.urls')),
+    path('core/git/', include('git_app.urls')),
+    path('core/accounts/', include('auth_app.urls')),
+    path('core/api/auth/', include('dj_rest_auth.urls')),
+    path('core/api/auth/registration/', include('dj_rest_auth.registration.urls')),
     # path('api/auth/github/', include('allauth.socialaccount.providers.github.urls')),
 ]

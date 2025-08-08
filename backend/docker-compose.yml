@@ -30,7 +30,14 @@ services:
       - ./core-service/cflow_backend/.env
     expose:
       - "9000"
+    volumes:
+      - ./core-service/cflow_backend:/app
+      - /var/run/docker.sock:/var/run/docker.sock
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.my-service.rule=PathPrefix(`/my-service`)"
+      - "traefik.http.routers.my-service.rule=PathPrefix(`/core`)"
       - "traefik.http.services.my-service.loadbalancer.server.port=9000"
+
+
+
+      
